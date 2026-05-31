@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard</title>
+    <title>School Management Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome, [Your Name]</h1>
-    </header>
 
-    <main>
-        <section class="dashboard-card">
-            <h2>Amazing Facts</h2>
-            <div id="fact-display">Loading facts...</div>
-        </section>
-    </main>
+    <div class="login-container">
+        <h1>School Portal</h1>
+
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+
+            <input type="password" id="password" placeholder="Password" required>
+
+            <select id="role" required>
+                <option value="">Select Role</option>
+                <option value="admin">Admin</option>
+                <option value="teacher">Teacher</option>
+                <option value="student">Student</option>
+                <option value="parent">Parent</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
