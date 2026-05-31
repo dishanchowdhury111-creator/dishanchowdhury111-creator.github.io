@@ -53,3 +53,48 @@ button:hover{
     margin-top:10px;
     font-weight:bold;
 }
+.dashboard{
+    display:flex;
+    height:100vh;
+}
+
+/* Sidebar */
+.sidebar{
+    width:220px;
+    background:#111827;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:12px;
+    cursor:pointer;
+    border-radius:6px;
+}
+
+.sidebar li:hover{
+    background:#374151;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:20px;
+    background:#f3f4f6;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
