@@ -37,10 +37,10 @@ loginForm.addEventListener("submit", function (e) {
 
     // Redirect based on role
     setTimeout(() => {
-        if (role === "admin") window.location.href = "admin.html";
-        else if (role === "teacher") window.location.href = "teacher.html";
-        else if (role === "student") window.location.href = "student.html";
-        else if (role === "parent") window.location.href = "parent.html";
+        if (role === "admin") window.location.href = "./admin.html";
+        else if (role === "teacher") window.location.href = "./teacher.html";
+        else if (role === "student") window.location.href = "./student.html";
+        else if (role === "parent") window.location.href = "./parent.html";
     }, 800);
 });
 // Dashboard navigation
