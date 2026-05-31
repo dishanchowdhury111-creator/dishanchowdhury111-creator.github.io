@@ -43,3 +43,17 @@ loginForm.addEventListener("submit", function (e) {
         else if (role === "parent") window.location.href = "parent.html";
     }, 800);
 });
+// Dashboard navigation
+function showSection(sectionId){
+    document.querySelectorAll(".section").forEach(sec => {
+        sec.classList.remove("active");
+    });
+
+    document.getElementById(sectionId).classList.add("active");
+}
+
+// Logout (works globally)
+function logout(){
+    localStorage.removeItem("user");
+    window.location.href = "index.html";
+}
