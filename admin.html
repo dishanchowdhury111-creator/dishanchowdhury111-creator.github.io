@@ -1,9 +1,55 @@
-<h1>Admin Dashboard</h1>
-<button onclick="logout()">Logout</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<script>
-function logout(){
-    localStorage.removeItem("user");
-    window.location.href = "index.html";
-}
-</script>
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>School ERP</h2>
+
+        <ul>
+            <li onclick="showSection('home')">🏠 Home</li>
+            <li onclick="showSection('students')">🎓 Students</li>
+            <li onclick="showSection('teachers')">👩‍🏫 Teachers</li>
+            <li onclick="showSection('attendance')">📊 Attendance</li>
+            <li onclick="logout()">🚪 Logout</li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <div id="home" class="section active">
+            <h1>Welcome Admin</h1>
+            <p>Manage your school system from here.</p>
+        </div>
+
+        <div id="students" class="section">
+            <h1>Students</h1>
+            <p>Student module will go here.</p>
+        </div>
+
+        <div id="teachers" class="section">
+            <h1>Teachers</h1>
+            <p>Teacher module will go here.</p>
+        </div>
+
+        <div id="attendance" class="section">
+            <h1>Attendance</h1>
+            <p>Attendance module will go here.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
