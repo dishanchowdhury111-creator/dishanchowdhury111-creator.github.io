@@ -1,15 +1,29 @@
-const facts = [
-    "Honey never spoils.",
-    "Octopuses have three hearts.",
-    "A day on Venus is longer than a year on Venus.",
-    "Bananas are berries, but strawberries aren't.",
-    "The shortest war in history lasted 38 minutes."
-];
+const loginForm = document.getElementById("loginForm");
+const message = document.getElementById("message");
 
-function displayFacts() {
-    const container = document.getElementById('fact-display');
-    container.innerHTML = "<ul>" + facts.map(f => `<li>${f}</li>`).join('') + "</ul>";
-}
+loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-// Run when the page loads
-window.onload = displayFacts;
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const role = document.getElementById("role").value;
+
+    if(username === "" || password === "" || role === "") {
+        message.textContent = "Please fill all fields.";
+        message.style.color = "red";
+        return;
+    }
+
+    message.textContent = `Login successful as ${role}`;
+    message.style.color = "green";
+
+    console.log({
+        username,
+        password,
+        role
+    });
+
+    // Future:
+    // Send login request to backend
+    // Redirect to dashboard
+});
