@@ -49,10 +49,16 @@
         </div>
 
         <div id="attendance" class="section">
-            <h1>Attendance</h1>
-            <p>Attendance module will go here.</p>
-        </div>
+    <h1>Attendance</h1>
 
+    <div class="card">
+        <input type="date" id="attDate">
+        <button onclick="loadAttendance()">Load Students</button>
+    </div>
+
+    <div id="attendanceList"></div>
+    <button onclick="saveAttendance()">Save Attendance</button>
+</div>
     </div>
 
 </div>
