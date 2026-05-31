@@ -107,3 +107,12 @@ button:hover{
     justify-content:space-between;
     align-items:center;
 }
+.fee-item{
+    background:white;
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
