@@ -111,3 +111,83 @@ function saveAttendance(){
 
     alert("Attendance saved!");
 }
+let fees = JSON.parse(localStorage.getItem("fees")) || [];
+
+function populateFeeDropdown(){
+    const select = document.getElementById("feeStudent");
+    if(!select) return;
+
+    select.innerHTML = "";
+
+    students.forEach(stu => {
+        select.innerHTML += `
+            <option value="${stu.id}">
+                ${stu.name} (Class ${stu.class})
+            </option>
+        `;
+    });
+}
+
+function addFee(){
+    const studentId = document.getElementById("feeStudent").value;
+    const amount = document.getElementById("feeAmount").value;
+
+    if(!studentId || !amount){
+        alert("Fill all fields");
+        return;
+    }
+
+    fees.push({
+        id: Date.now(),
+        studentId,
+        amount,
+        status: "unpaid"
+    });
+
+    localStorage.setItem("fees", JSON.stringify(fees));
+
+    document.getElementById("feeAmount").value = "";
+
+    renderFees();
+}
+
+function renderFees(){
+    const list = document.getElementById("feeList");
+    if(!list) return;
+
+    list.innerHTML = "";
+
+    fees.forEach(fee => {
+        const student = students.find(s => s.id == fee.studentId);
+
+        list.innerHTML += `
+            <div class="fee-item">
+                <div>
+                    <b>${student ? student.name : "Unknown"}</b><br>
+                    ₹${fee.amount} | ${fee.status}
+                </div>
+
+                <button onclick="toggleFee(${fee.id})">
+                    Mark ${fee.status === "paid" ? "Unpaid" : "Paid"}
+                </button>
+            </div>
+        `;
+    });
+}
+
+function toggleFee(id){
+    fees = fees.map(f => {
+        if(f.id === id){
+            f.status = f.status === "paid" ? "unpaid" : "paid";
+        }
+        return f;
+    });
+
+    localStorage.setItem("fees", JSON.stringify(fees));
+    renderFees();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    renderFees();
+    populateFeeDropdown();
+});
